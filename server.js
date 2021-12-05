@@ -3,6 +3,7 @@ const connectDB = require('./config/db');
 
 const app = express();
 connectDB(); // connect database - MongoDB
+app.use(express.json({ extended: false })); // init middleware - it allows us to get data in req.body in related routes
 
 app.get('/', (req, res) =>
   res.send('API Running (made by Ranjan Kumar Mandal)...')
